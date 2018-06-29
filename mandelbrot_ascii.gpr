@@ -1,0 +1,24 @@
+project Mandelbrot_Ascii is
+
+   for Source_Dirs use ("src");
+   for Object_Dir use "obj";
+   for Exec_Dir use "bin";
+   for Main use ("mandelbrot_ascii.adb");
+
+   package Builder is
+      for Switches ("ada") use ("-j0", "-g");
+   end Builder;
+
+   package Compiler is
+      for Switches ("ada") use ("-gnatVa", "-gnatwa", "-g", "-O2", "-gnato", "-fstack-check", "-gnata");
+   end Compiler;
+
+   package Binder is
+      for Switches ("ada") use ("-Es");
+   end Binder;
+
+   package Linker is
+      for Switches ("ada") use ("-g");
+   end Linker;
+
+end Mandelbrot_Ascii;
